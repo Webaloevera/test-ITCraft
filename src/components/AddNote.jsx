@@ -2,9 +2,12 @@ import React, {useState} from 'react';
 import '../styles/AddNote.scss';
 import PropTypes from 'prop-types';
 
-const AddNote = ({onCreate}) => {
+const AddNote = ({onCreate, toggleAdd}) => {
     const [value, setValue] = useState('')
     const [desk, setDesc] = useState('')
+
+
+
 
     function submitHandler(event) {
         event.preventDefault()
@@ -12,6 +15,7 @@ const AddNote = ({onCreate}) => {
             onCreate(value, desk)
             setValue('')
             setDesc('')
+            toggleAdd(false)
         }
     }
 

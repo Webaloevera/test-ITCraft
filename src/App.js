@@ -12,6 +12,8 @@ const [notes, setNotes] = React.useState([
   // {id: Date.now(), title: 'First', description: 'lorem'}
 ])
 
+const [openAdd, setDescOpenAdd] = React.useState(false)
+console.log(openAdd)
 function selectedNote(id) {
   setNotes(
   notes.map(note => {
@@ -30,6 +32,10 @@ function addNote(title, description) {
     description
   }]))
 }
+
+function newAdd(state){
+return setDescOpenAdd(state)
+}
   return (
 
     <div className="App">
@@ -37,12 +43,12 @@ function addNote(title, description) {
         <div className="note_nav">
             <div className="note_nav-list">
             <SortNotes/>
-            <button>+ New</button>
+            <button onClick={newAdd}>+ New</button>
             {notes.length ? <NotesList notes={notes} onSelect={selectedNote}/> : <p>No Notes...</p>}
-          
             </div>
         </div>
-        <AddNote onCreate={addNote}/>
+        {openAdd && <AddNote toggleAdd={newAdd} onCreate={addNote}/>}
+
       </div>
     </div>
 
