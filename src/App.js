@@ -20,7 +20,10 @@ function selectedNote(id) {
     if(note.id === id) {
       note.title = '1'
     }
-    return note
+    newAdd(true)
+    return {
+      note
+    }
   })
   )
 }
@@ -34,7 +37,7 @@ function addNote(title, description) {
 }
 
 function newAdd(state){
-return setDescOpenAdd(state)
+  setDescOpenAdd(state)
 }
   return (
 

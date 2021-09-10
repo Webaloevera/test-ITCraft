@@ -8,7 +8,6 @@ const NotesList = (props) => {
             padding: '0px'
         }
     }
-    console.log(props.notes)
 return (
     <ul className="note-list" style={style.ul}>
     { props.notes.map((note) => {
